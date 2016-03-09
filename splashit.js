@@ -26,8 +26,15 @@ function Splashit(){
         objects: "category/objects/"
     };
 
-    this.sizeFlag = false;
-    this.typeFlag = false;
+    this.sizeOpt = {
+        flag: false,
+        value: ""
+    };
+
+    this.typeOpt = {
+        flag: false,
+        value: ""
+    };
 
     /**
      * General URL to API Unsplash
@@ -56,67 +63,73 @@ function Splashit(){
 
             activeFlags(data, splashes[x], x);
 
-
-            console.log(data);
         }
     };
 
 
     var activeFlags = function(dataArray, item, cont){
-        var type = "";
         
         for(var x = 0; x < dataArray.length; x++){
-            if(dataArray[0] == "size"){
-                that.sizeFlag = true;
+            if(dataArray[x][0] == "size"){
+                that.sizeOpt.flag = true;
+                that.sizeOpt.value = dataArray[x][1];
             }
         }
 
         if(item.classList.contains("random")){
-            that.typeFlag = true;
-            type = types.random;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.random;
         }else if(item.classList.contains("buildings")){
-            that.typeFlag = true;
-            type = types.buildings;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.buildings;
         }else if(item.classList.contains("food")){
-            that.typeFlag = true;
-            type = types.food;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.food;
         }else if(item.classList.contains("nature")){
-            that.typeFlag = true;
-            type = types.nature;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.nature;
         }else if(item.classList.contains("people")){
-            that.typeFlag = true;
-            type = types.people;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.people;
         }else if(item.classList.contains("technology")){
-            that.typeFlag = true;
-            type = types.technology;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.technology;
         }else if(item.classList.contains("objects")){
-            that.typeFlag = true;
-            type = types.objects;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.objects;
         }else{
-            that.typeFlag = true;
-            type = types.random;
+            that.typeOpt.flag = true;
+            that.typeOpt.value = types.random;
         }
 
 
-        precontructUrl();
-        setSplashImage(item, type, cont);
-    };
+        precontructUrl(item, cont);
 
-
-    var precontructUrl = function(elem, type, cont){
-        
     };
 
 
     /**
-     * Generate the URL to the Image in Unsplash
-     * @param {DOM-Element} elem Element to modify
-     * @param {string} 		type Configuration Image in API
-     * @param {int} 		x    Random numeration
+     * Construct the Url for image Render based in the data-splasit tag information
+     * @param {DOM-Element} elem    Element to configure
+     * @param {int}         cont    Counter for random image
+     * @return {void}
      */
-    var setSplashImage = function(elem, type, x){
-    	var image = url.replace(":replace:",type)+"?="+x;
-    	identifyTypeTag(elem, image);
+    var precontructUrl = function(elem, cont){
+        var img = url;
+
+        if(that.typeOpt.flag){
+            img = img + that.typeOpt.value;
+        }
+
+        if(that.sizeOpt.flag){
+            img = img + that.sizeOpt.value + "/";
+        }
+
+        img = img + "?=" + cont;
+
+        console.log(img);
+
+        identifyTypeTag(elem, img);
     };
 
 
