@@ -10,6 +10,8 @@
  */
 function Splashit(){
 
+    var that = this;
+
     /**
      * Allowed types of splash images
      * @type {{random: string, buildings: string, food: string, nature: string, people: string, technology: string, objects: string}}
@@ -24,12 +26,14 @@ function Splashit(){
         objects: "category/objects/"
     };
 
+    this.sizeFlag = false;
+    this.typeFlag = false;
 
     /**
      * General URL to API Unsplash
      * @type {string}
      */
-    var url = "https://source.unsplash.com/:replace:";
+    var url = "https://source.unsplash.com/";
 
 
     /**
@@ -41,31 +45,66 @@ function Splashit(){
         var splashes = document.querySelectorAll(".splash-this");
 
         for(var x = 0; x < splashes.length; x++){
-            if(splashes[x].classList.contains("random")){
-                setSplashImage(splashes[x], types.random, x);
+            var data = splashes[x].hasAttribute("data-splashit") ? splashes[x].getAttribute("data-splashit") : "";
 
-            }else if(splashes[x].classList.contains("buildings")){
-                setSplashImage(splashes[x], types.buildings, x);
+            data = data.split(";");
 
-            }else if(splashes[x].classList.contains("food")){
-                setSplashImage(splashes[x], types.food, x);
+            for(var d = 0; d < data.length; d++){
+                data[d] = data[d].replace(" ","").split(":");
+            }
 
-            }else if(splashes[x].classList.contains("nature")){
-                setSplashImage(splashes[x], types.nature, x);
 
-            }else if(splashes[x].classList.contains("people")){
-                setSplashImage(splashes[x], types.people, x);
+            activeFlags(data, splashes[x], x);
 
-            }else if(splashes[x].classList.contains("technology")){
-                setSplashImage(splashes[x], types.technology, x);
 
-            }else if(splashes[x].classList.contains("objects")){
-                setSplashImage(splashes[x], types.objects, x);
+            console.log(data);
+        }
+    };
 
-            }else{
-                setSplashImage(splashes[x], types.random, x);
+
+    var activeFlags = function(dataArray, item, cont){
+        var type = "";
+        
+        for(var x = 0; x < dataArray.length; x++){
+            if(dataArray[0] == "size"){
+                that.sizeFlag = true;
             }
         }
+
+        if(item.classList.contains("random")){
+            that.typeFlag = true;
+            type = types.random;
+        }else if(item.classList.contains("buildings")){
+            that.typeFlag = true;
+            type = types.buildings;
+        }else if(item.classList.contains("food")){
+            that.typeFlag = true;
+            type = types.food;
+        }else if(item.classList.contains("nature")){
+            that.typeFlag = true;
+            type = types.nature;
+        }else if(item.classList.contains("people")){
+            that.typeFlag = true;
+            type = types.people;
+        }else if(item.classList.contains("technology")){
+            that.typeFlag = true;
+            type = types.technology;
+        }else if(item.classList.contains("objects")){
+            that.typeFlag = true;
+            type = types.objects;
+        }else{
+            that.typeFlag = true;
+            type = types.random;
+        }
+
+
+        precontructUrl();
+        setSplashImage(item, type, cont);
+    };
+
+
+    var precontructUrl = function(elem, type, cont){
+        
     };
 
 
@@ -78,7 +117,7 @@ function Splashit(){
     var setSplashImage = function(elem, type, x){
     	var image = url.replace(":replace:",type)+"?="+x;
     	identifyTypeTag(elem, image);
-    }
+    };
 
 
     /**
