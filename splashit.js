@@ -139,6 +139,9 @@ function Splashit(){
                 if(value == "true"){
                     that.userOpt.like = true;
                 }
+            }else if(flag == "fixed" && (value == "daily" || value == "weekly")){
+                that.fixedOpt.flag = true;
+                that.fixedOpt.value = value;
             }
         }
 
@@ -190,6 +193,10 @@ function Splashit(){
             if(that.userOpt.like){
                 img = img + "likes/";
             }
+        }
+
+        if(that.fixedOpt.flag){
+            img = img + that.fixedOpt.value + "/";
         }
 
         if(that.sizeOpt.flag){

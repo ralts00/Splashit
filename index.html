@@ -29,13 +29,6 @@
             text-shadow: 1px 1px grey;
         }
 
-        .my-img{
-            margin: 15px;
-            max-height: 400px;
-            width: auto;
-            float: left;
-        }
-
         section{
             overflow: hidden;
         }
@@ -49,20 +42,15 @@
 <h1>Random from a category <small>html:tags</small></h1>
 
 <section>
-    <div class="my-container splash-this random"></div>
-    <div class="my-container splash-this buildings"></div>
-    <div class="my-container splash-this"></div>
-</section>
-
-
-<hr>
-
-<h1>Random from a category <small>html:img</small></h1>
-
-<section>
-    <img src="" class="my-img splash-this random"       alt="Random">
-    <img src="" class="my-img splash-this buildings"    alt="Buildings">
-    <img src="" class="my-img splash-this"              alt="Otro Random">
+    <div class="my-container splash-this random">
+        <span class="span-text">.splash-this.random</span>
+    </div>
+    <div class="my-container splash-this buildings">
+        <span class="span-text">.splash-this.buildings</span>
+    </div>
+    <div class="my-container splash-this">
+        <span class="span-text">.splash-this</span>
+    </div>
 </section>
 
 
@@ -71,20 +59,15 @@
 <h1>Sizing images <small>html:tags</small></h1>
 
 <section>
-    <div class="my-container splash-this" data-splashit="size: 1600x900;"></div>
-    <div class="my-container splash-this" data-splashit="size: 800x600;"></div>
-    <div class="my-container splash-this" data-splashit="size: 1200x800;"></div>
-</section>
-
-
-<hr>
-
-<h1>Sizing images <small>html:img</small></h1>
-
-<section>
-    <img src="" class="my-img splash-this" data-splashit="size:1600x900" alt="Random">
-    <img src="" class="my-img splash-this" data-splashit="size:800x600" alt="Buildings">
-    <img src="" class="my-img splash-this" data-splashit="size:1200x600" alt="Otro Random">
+    <div class="my-container splash-this" data-splashit="size: 1600x900;">
+        <span class="span-text">Size: 1600x900</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="size: 800x600;">
+        <span class="span-text">Size: 800x600</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="size: 1200x800;">
+        <span class="span-text">Size: 1200x800</span>
+    </div>
 </section>
 
 
@@ -107,17 +90,6 @@
 
 <hr>
 
-<h1>Random from a specific user <small>html:img</small></h1>
-
-<section>
-    <img src="" class="my-img splash-this" data-splashit="user: aleskrivec"   alt="Ales Krivec">
-    <img src="" class="my-img splash-this" data-splashit="user: pedrekoncept" alt="pierre rougier">
-    <img src="" class="my-img splash-this" data-splashit="user: cieloadentro" alt="Roksolana Zasiadko">
-</section>
-
-
-<hr>
-
 <h1>Random from a user's likes <small>html:tags</small></h1>
 
 <section>
@@ -135,13 +107,20 @@
 
 <hr>
 
-<h1>Random from a user's likes <small>html:img</small></h1>
+<h1>Fixed daily/weekly photo <small>html:tags</small></h1>
 
 <section>
-    <img src="" class="my-img splash-this" data-splashit="user: aleskrivec; userlike: true"   alt="Ales Krivec">
-    <img src="" class="my-img splash-this" data-splashit="user: pedrekoncept; userlike: true" alt="pierre rougier">
-    <img src="" class="my-img splash-this" data-splashit="user: cieloadentro; userlike: true" alt="Roksolana Zasiadko">
+    <div class="my-container splash-this" data-splashit="fixed: daily">
+        <span class="span-text">Ramdom - Daily</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="user: pedrekoncept; fixed: weekly">
+        <span class="span-text">pierre rougier - Weekly</span>
+    </div>
+    <div class="my-container splash-this nature" data-splashit="fixed: daily">
+        <span class="span-text">Nature - Daily</span>
+    </div>
 </section>
+
 
 
 </body>
