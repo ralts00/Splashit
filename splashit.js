@@ -1,5 +1,5 @@
 /**
- * @version 0.1.0
+ * @version 0.2.0
  * @author Eduardo Aguilar <dante.aguilar41@gmail.com>
  */
 
@@ -10,7 +10,22 @@
  */
 function Splashit(){
 
+    this.version = "0.2.0";
+
+    /**
+     * General URL to API Unsplash
+     * @type {string}
+     */
+    var url = "https://source.unsplash.com/";
+
+
+    /**
+     * Globalization for Splashit context
+     * @type {Splashit}
+     */
     var that = this;
+
+
 
     /**
      * Allowed types of splash images
@@ -26,6 +41,13 @@ function Splashit(){
         objects: "category/objects/"
     };
 
+
+
+    /**
+     * Flag options for construct the Url to the image
+     * @type {{flag: boolean, value: string}}
+     */
+
     this.sizeOpt = {
         flag: false,
         value: ""
@@ -36,11 +58,18 @@ function Splashit(){
         value: ""
     };
 
-    /**
-     * General URL to API Unsplash
-     * @type {string}
-     */
-    var url = "https://source.unsplash.com/";
+    this.userOpt = {
+        flag: false,
+        like: false,
+        value: ""
+    };
+
+    this.fixedOpt = {
+        flag: false,
+        value: ""
+    };
+
+
 
 
     /**
@@ -57,22 +86,59 @@ function Splashit(){
             data = data.split(";");
 
             for(var d = 0; d < data.length; d++){
-                data[d] = data[d].replace(" ","").split(":");
+                data[d] = data[d].replace(" ","").replace(" ","").split(":");
             }
 
 
             activeFlags(data, splashes[x], x);
-
+            resetFlags();
         }
     };
 
 
+    /**
+     * Reset Storage values for new elements
+     * @return {void}
+     */
+    var resetFlags = function(){
+        that.sizeOpt.flag = false;
+        that.sizeOpt.value = "";
+
+        that.typeOpt.flag = false;
+        that.typeOpt.value = "";
+
+        that.userOpt.flag = false;
+        that.userOpt.like = false;
+        that.userOpt.value = "";
+
+        that.fixedOpt.flag = false;
+        that.fixedOpt.value = "";
+    };
+
+
+    /**
+     * Active Flags for precontruct of Url
+     * @param {Array} dataArray
+     * @param {DOM-Element} item
+     * @param {int} cont
+     */
     var activeFlags = function(dataArray, item, cont){
         
         for(var x = 0; x < dataArray.length; x++){
-            if(dataArray[x][0] == "size"){
+
+            var flag = dataArray[x][0];
+            var value = dataArray[x][1];
+            
+            if(flag == "size"){
                 that.sizeOpt.flag = true;
-                that.sizeOpt.value = dataArray[x][1];
+                that.sizeOpt.value = value;
+            }else if(flag == "user"){
+                that.userOpt.flag = true;
+                that.userOpt.value = value;
+            }else if(flag == "userlike"){
+                if(value == "true"){
+                    that.userOpt.like = true;
+                }
             }
         }
 
@@ -117,8 +183,13 @@ function Splashit(){
     var precontructUrl = function(elem, cont){
         var img = url;
 
-        if(that.typeOpt.flag){
+        if(that.typeOpt.flag && !that.userOpt.flag){
             img = img + that.typeOpt.value;
+        }else if(that.userOpt.flag){
+            img = img + "user/" + that.userOpt.value + "/";
+            if(that.userOpt.like){
+                img = img + "likes/";
+            }
         }
 
         if(that.sizeOpt.flag){
@@ -127,7 +198,11 @@ function Splashit(){
 
         img = img + "?=" + cont;
 
+
+        /////////////////////////////////////////////////////////////////
         console.log(img);
+        /////////////////////////////////////////////////////////////////
+
 
         identifyTypeTag(elem, img);
     };

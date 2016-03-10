@@ -13,6 +13,20 @@
             float: left;
             background-size: cover;
             background-position: center;
+            position: relative;
+        }
+
+        .span-text{
+            position: absolute;
+            top: calc(200px - 1em);
+            left:0;
+            right:0;
+            bottom:0;
+            color: #FFFFFF;
+            font-size: 2em;
+            width: 400px;
+            text-align: center;
+            text-shadow: 1px 1px grey;
         }
 
         .my-img{
@@ -32,61 +46,103 @@
 </head>
 <body>
 
+<h1>Random from a category <small>html:tags</small></h1>
+
 <section>
     <div class="my-container splash-this random"></div>
     <div class="my-container splash-this buildings"></div>
-    <div class="my-container splash-this food"></div>
-    <div class="my-container splash-this nature"></div>
-    <div class="my-container splash-this people"></div>
-    <div class="my-container splash-this technology"></div>
-    <div class="my-container splash-this objects"></div>
     <div class="my-container splash-this"></div>
 </section>
 
 
 <hr>
 
+<h1>Random from a category <small>html:img</small></h1>
 
 <section>
-    <div class="my-container splash-this random" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this buildings" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this food" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this nature" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this people" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this technology" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this objects" data-splashit="size: 1600x900; author:yo"></div>
-    <div class="my-container splash-this" data-splashit="size: 1600x900; author:yo"></div>
+    <img src="" class="my-img splash-this random"       alt="Random">
+    <img src="" class="my-img splash-this buildings"    alt="Buildings">
+    <img src="" class="my-img splash-this"              alt="Otro Random">
 </section>
 
 
 <hr>
 
+<h1>Sizing images <small>html:tags</small></h1>
 
 <section>
-    <img src="" alt="Random" class="my-img splash-this random">
-    <img src="" alt="Buildings" class="my-img splash-this buildings">
-    <img src="" alt="Food" class="my-img splash-this food">
-    <img src="" alt="Nature" class="my-img splash-this nature">
-    <img src="" alt="People" class="my-img splash-this people">
-    <img src="" alt="Technology" class="my-img splash-this technology">
-    <img src="" alt="Objects" class="my-img splash-this objects">
-    <img src="" alt="Otro Random" class="my-img splash-this">
+    <div class="my-container splash-this" data-splashit="size: 1600x900;"></div>
+    <div class="my-container splash-this" data-splashit="size: 800x600;"></div>
+    <div class="my-container splash-this" data-splashit="size: 1200x800;"></div>
 </section>
 
 
 <hr>
 
+<h1>Sizing images <small>html:img</small></h1>
 
 <section>
-    <img src="" alt="Random" class="my-img splash-this random" data-splashit="size:800x600">
-    <img src="" alt="Buildings" class="my-img splash-this buildings" data-splashit="size:800x600">
-    <img src="" alt="Food" class="my-img splash-this food" data-splashit="size:800x600">
-    <img src="" alt="Nature" class="my-img splash-this nature" data-splashit="size:800x600">
-    <img src="" alt="People" class="my-img splash-this people" data-splashit="size:800x600">
-    <img src="" alt="Technology" class="my-img splash-this technology" data-splashit="size:800x600">
-    <img src="" alt="Objects" class="my-img splash-this objects" data-splashit="size:800x600">
-    <img src="" alt="Otro Random" class="my-img splash-this" data-splashit="size:800x600">
+    <img src="" class="my-img splash-this" data-splashit="size:1600x900" alt="Random">
+    <img src="" class="my-img splash-this" data-splashit="size:800x600" alt="Buildings">
+    <img src="" class="my-img splash-this" data-splashit="size:1200x600" alt="Otro Random">
 </section>
+
+
+<hr>
+
+<h1>Random from a specific user <small>html:tags</small></h1>
+
+<section>
+    <div class="my-container splash-this" data-splashit="user: aleskrivec">
+        <span class="span-text">Ales Krivec</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="user: pedrekoncept">
+        <span class="span-text">pierre rougier</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="user: cieloadentro">
+        <span class="span-text">Roksolana Zasiadko</span>
+    </div>
+</section>
+
+
+<hr>
+
+<h1>Random from a specific user <small>html:img</small></h1>
+
+<section>
+    <img src="" class="my-img splash-this" data-splashit="user: aleskrivec"   alt="Ales Krivec">
+    <img src="" class="my-img splash-this" data-splashit="user: pedrekoncept" alt="pierre rougier">
+    <img src="" class="my-img splash-this" data-splashit="user: cieloadentro" alt="Roksolana Zasiadko">
+</section>
+
+
+<hr>
+
+<h1>Random from a user's likes <small>html:tags</small></h1>
+
+<section>
+    <div class="my-container splash-this" data-splashit="user: aleskrivec; userlike: true">
+        <span class="span-text">Ales Krivec - Likes</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="user: pedrekoncept; userlike: true">
+        <span class="span-text">pierre rougier - Likes</span>
+    </div>
+    <div class="my-container splash-this" data-splashit="user: cieloadentro; userlike: true">
+        <span class="span-text">Roksolana Zasiadko - Likes</span>
+    </div>
+</section>
+
+
+<hr>
+
+<h1>Random from a user's likes <small>html:img</small></h1>
+
+<section>
+    <img src="" class="my-img splash-this" data-splashit="user: aleskrivec; userlike: true"   alt="Ales Krivec">
+    <img src="" class="my-img splash-this" data-splashit="user: pedrekoncept; userlike: true" alt="pierre rougier">
+    <img src="" class="my-img splash-this" data-splashit="user: cieloadentro; userlike: true" alt="Roksolana Zasiadko">
+</section>
+
 
 </body>
 </html>
