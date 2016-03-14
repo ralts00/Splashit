@@ -3,8 +3,8 @@ Libreria js que utiliza la [API de Unsplash](https://source.unsplash.com/) para 
 
 # Instalación
 
-La forma recomendada de instalar este modulo es mediante boer utilizando el siguiente comando
+La forma recomendada de instalar este modulo es mediante [bower](http://bower.io/) utilizando el siguiente comando
 
-    bower install splasit
+    $ bower install splasit
 
 
