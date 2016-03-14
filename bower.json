@@ -1,5 +1,26 @@
 {
-  "name": "SplashitJS",
-  "version": "0.1.0",
-  "dependencies": {}
+  "name": "splashit",
+  "homepage": "https://github.com/danteay/Splashit",
+  "description": "Libreria JS que usa la API de Unsplash para facilitar imagenes de prueba random",
+  "main": "splash.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "unsplash",
+    "images",
+    "js",
+    "test"
+  ],
+  "authors": [
+    "Eduardo Aguilar <dante.aguilar41@gmail.com>"
+  ],
+  "license": "GNU-3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
