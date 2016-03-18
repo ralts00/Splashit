@@ -1,5 +1,5 @@
 # Splashit
-Libreria js que utiliza la [API de Unsplash](https://source.unsplash.com/) para ofrecer imagenes de prueba random en tus proyectos de prueba o mauqetas.
+Libreria js que utiliza la [API de Unsplash](https://source.unsplash.com/) para ofrecer imagenes de prueba random en tus proyectos de prueba o maquetas.
 
 # Instalación
 
